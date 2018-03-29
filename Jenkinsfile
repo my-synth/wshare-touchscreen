@@ -13,7 +13,6 @@ make
 cd ..
 
 gcc -std=c99 -Wall ./waveshare.c -pthread -lsuinput -ludev -Ilibsuinput/src -Llibsuinput/src/.libs -o waveshare-touch-driver'''
-        warnings(canComputeNew: true, canRunOnFailed: true)
       }
     }
   }
