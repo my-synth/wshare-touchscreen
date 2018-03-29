@@ -4,6 +4,7 @@ pipeline {
     stage('build') {
       steps {
         sh '''git submodule init
+git submodule update --recursive --remote
 
 cd libsuinput
 ./autogen.sh
