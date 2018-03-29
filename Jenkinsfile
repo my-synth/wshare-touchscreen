@@ -15,5 +15,10 @@ cd ..
 gcc -std=c99 -Wall ./waveshare.c -pthread -lsuinput -ludev -Ilibsuinput/src -Llibsuinput/src/.libs -o waveshare-touch-driver'''
       }
     }
+    stage('save') {
+      steps {
+        archiveArtifacts 'waveshare-touch-driver'
+      }
+    }
   }
 }
