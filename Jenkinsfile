@@ -3,7 +3,13 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        sh 'gcc -std=c99 -Wall ./waveshare.c -pthread -lsuinput -ludev -o waveshare-touch-driver'
+        sh '''cd libsuinput
+./autogen.sh
+./configure
+make
+cd ..
+'''
+        sh 'gcc -std=c99 -Wall ./waveshare.c -pthread -lsuinput -ludev -Ilibsuinput/src -Llibsuinput/src -o waveshare-touch-driver'
       }
     }
   }
